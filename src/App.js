@@ -1,5 +1,6 @@
 import React from "react"
 import TableComponent from "./table.component"//
+// import Table2 from "./table2.component"
 
 
 function App() {
@@ -7,6 +8,7 @@ function App() {
         <div> 
         <TableComponent />   
         {/* <TextF /> */}
+        {/* <Table2 /> */}
         </div>
     )
 }

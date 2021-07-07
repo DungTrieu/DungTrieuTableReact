@@ -11,6 +11,7 @@ import { Checkbox } from '@material-ui/core';
 import { useState } from 'react';
 import { CheckBox } from '@material-ui/icons';
 
+
 const TableComponent = () => {
   const useStyles = makeStyles({
     table: {
@@ -18,15 +19,24 @@ const TableComponent = () => {
     },
   });
 
-  const [checked,setChecked] = useState(true)
-  const [checked1,setChecked1] = useState(true)
+  // const [checked,setChecked] = useState(true)
+  // const [checked1,setChecked1] = useState(true)
+  // const [idCheck,setIdCheck] = useState([])
+  // const [index,setIndex] = useState(0)
+  
+  // const handleIdCheck = (props) => {
+  //   setIdCheck(prevIdCheck => [...prevIdCheck,props])
+  // }
+  // const handleCheck = (e) => {
+  //   setChecked(e.target.checked)
+  // }
+  // const handleIndex = (index) => {
+  //   setIndex(index)
+  // }
 
-  const handleCheck1 = (e) => {
-    setChecked1(e.target.checked1)
-  }
 
-  const handleCheck = (e) => {
-    setChecked(e.target.checked)
+  const handleCheck1 = (row) => {
+    console.log(row)
   }
 
   const createData = (id, name , email, group, customer) => {
@@ -41,7 +51,7 @@ const TableComponent = () => {
     createData('5', 'E', 'a@gmail.com', 'Ex', '3.9'),
   ];
 
-    const classes = useStyles();
+  const classes = useStyles();
 
     return (
       <TableContainer component={Paper}>
@@ -49,10 +59,10 @@ const TableComponent = () => {
           <TableHead>
             <TableRow>
               <TableCell align="center">
-                <Checkbox
+                {/* <Checkbox
                   checked={checked}
                   onChange={handleCheck}
-                />
+                /> */}
               </TableCell>
               <TableCell align="center">ID </TableCell>
               <TableCell align="center">Name</TableCell>
@@ -65,9 +75,8 @@ const TableComponent = () => {
             {rows.map((row) => (
               <TableRow key={row.id}>
                 <TableCell align="center">
-                  <CheckBox
-                    checked1={checked1}
-                    onChange={handleCheck1}
+                  <Checkbox
+                    onChange={handleCheck1.bind(this,row)}
                   />
                 </TableCell>
                 <TableCell align="center" component="th" scope="row">
@@ -77,6 +86,7 @@ const TableComponent = () => {
                 <TableCell align="center">{row.email}</TableCell>
                 <TableCell align="center">{row.group}</TableCell>
                 <TableCell align="center">{row.customer}</TableCell>
+                <TableCell align="center">{row.value}</TableCell>
               </TableRow>
             )
             )}
